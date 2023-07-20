@@ -1,0 +1,64 @@
+$play: running;
+$direction: normal;
+$duration: 20.6s;
+$delay: 0s;
+$iteration-count: infinite;
+.avatars {
+  background: url("../../public/assets/lobby.webp");
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100%;
+  position: relative;
+  overflow-x: hidden;
+  @include flexCenter;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #282b30;
+  color: #fff;
+
+  & > h2 {
+    @include titleSection;
+    margin-bottom: 140px;
+
+    @include phone {
+      margin-bottom: 120px;
+    }
+  }
+
+  .overview-container {
+    display: flex;
+    width: 100%;
+    gap: 20px;
+    position: relative;
+    // overflow-x: hidden;
+    .overview {
+      //   transform: translateX(-101%);
+      display: flex;
+      gap: 20px;
+      animation: scroll $duration linear $delay $iteration-count $direction;
+
+      &-item {
+        background-color: #9a9a9a;
+        display: flex;
+        justify-content: center;
+        width: 300px;
+        height: 330px;
+        border-radius: 10px;
+        padding: 20px;
+        img {
+          // width: 200px !important;
+          // height: 10px !important;
+        }
+      }
+    }
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-101%);
+  }
+}

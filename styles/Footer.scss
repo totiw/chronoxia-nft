@@ -1,0 +1,104 @@
+.coming-soons {
+  @include flexCenter;
+  flex-direction: column;
+  background: url("../public/assets/map-bg.webp");
+  background-size: cover;
+  background-attachment: fixed;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  gap: 15px;
+  z-index: 999;
+  transform: scale(0);
+  opacity: 0;
+  transition: 1s all ease;
+  // display: none;
+
+  & > button {
+    @include btn;
+    transform: skew(0);
+    border-radius: 5px;
+    padding: 10px;
+    color: #000;
+    position: absolute;
+    top: 5%;
+    right: 5%;
+  }
+
+  &.active {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  h2 {
+    font-size: $base-font-size * 4;
+  }
+
+  blockquote {
+    margin-bottom: 30px;
+  }
+
+  .socials {
+    // width: 30% !important;
+    @include sosials;
+  }
+}
+.footer {
+  color: #fff;
+  position: relative;
+  min-height: 41.6vh;
+  background-color: #282b30;
+  // background-color: #b03323;
+  padding: 40px 0;
+  @include flexCenter;
+  flex-direction: column;
+  gap: 60px;
+  @include desktop {
+    min-height: 51.6vh;
+    gap: 80px;
+  }
+
+  .download-game {
+    @include btn;
+    font-size: $base-font-size * 1.5;
+    width: 200px;
+    border-radius: 5px;
+    // transform: skew(0);
+    padding: 10px 15px;
+    color: #000000;
+  }
+
+  & > h2 {
+    font-size: $base-font-size * 4;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    @include desktop {
+      padding: 0 50px;
+      font-size: $base-font-size * 3.5;
+      text-align: center;
+    }
+
+    @include tablet {
+      font-size: $base-font-size * 2.5;
+    }
+  }
+
+  .container {
+    .socials {
+      @include sosials;
+    }
+  }
+
+  p {
+    letter-spacing: 1.2px;
+    padding: 0 50px;
+    text-align: center;
+
+    @include phone {
+      font-size: $base-font-size;
+    }
+  }
+}

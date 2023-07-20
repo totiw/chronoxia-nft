@@ -1,0 +1,219 @@
+.wing {
+  position: absolute;
+  left: 5%;
+  z-index: 9;
+  transform: translateY(-150px) scale(1);
+  @include desktop {
+    transform: translate(-60px, -120px) scale(0.8);
+  }
+  @include tablet {
+    transform: translate(-60px, -120px) scale(0.5);
+  }
+  @include phone {
+    display: none;
+    // left: 20%;
+    // transform: translate(-60px, -120px) scale(0.6);
+    // transform: translate(-60px, -120px) scale(0.5);
+  }
+  img {
+    width: 425px !important;
+    height: 277px !important;
+  }
+}
+.vision {
+  color: #fff;
+  position: relative;
+  min-height: 91.6vh;
+  background-color: #b03323;
+  padding: 40px 0;
+  @include flexCenter;
+  flex-direction: column;
+  gap: 60px;
+  @include desktop {
+    min-height: 81.6vh;
+    gap: 30px;
+  }
+
+  @include phone {
+    gap: 0;
+  }
+
+  &::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: #282b30;
+    clip-path: polygon(100% 0, 0 0, 100% 100%);
+    z-index: 0;
+  }
+
+  & > h2 {
+    @include titleSection;
+  }
+
+  .outline {
+    font-size: $base-font-size * 30 !important;
+    color: transparent;
+    -webkit-text-stroke: 0.8px #fff;
+    position: absolute;
+    // transform: translateY(10px);
+    top: 40%;
+    left: -50%;
+    opacity: 0.55;
+    @include desktop {
+      font-size: $base-font-size * 8 !important;
+      transform: scale(1.5) !important;
+      top: 25%;
+      left: 25%;
+    }
+    @include tablet {
+      transform: rotate(-90deg) scale(1) !important;
+      top: 5%;
+      right: 0;
+      opacity: 0.45;
+      // display: none;
+    }
+
+    @include phone {
+      font-size: $base-font-size * 8 !important;
+      right: -40%;
+      top: 50%;
+    }
+  }
+
+  .container {
+    // background-color: green;
+    width: 85%;
+    transform: translateY(30px);
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    gap: 15%;
+    @include desktop {
+      transform: translateY(0);
+      flex-direction: column;
+    }
+
+    .left {
+      @include flexCenter;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 25px;
+      width: 35%;
+      @include desktop {
+        width: 85%;
+        align-items: center;
+      }
+
+      @include phone {
+        width: 100%;
+      }
+      .button {
+        @include btn;
+        transform: skew(-10deg);
+      }
+
+      a {
+        @include flexCenter;
+        position: relative;
+        font-size: $base-font-size * 1.2;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        border-radius: 7px;
+        padding: 10px 18px;
+        text-align: left;
+        text-decoration: none;
+        overflow: hidden;
+        transition: 0.5s;
+
+        span {
+          color: #fff;
+          position: relative;
+          z-index: 1;
+        }
+
+        &::before {
+          position: absolute;
+          content: "";
+          width: 10px;
+          height: 400px;
+          background-color: #fff;
+          animation: rotate 2s linear infinite;
+          transition: 0.25s;
+        }
+
+        &::after {
+          content: "";
+          border-radius: 5px;
+          position: absolute;
+          inset: 3px;
+          background: #b03323;
+          transition: 0.18s ease-in;
+        }
+
+        &:hover {
+          span {
+            color: #000;
+          }
+          &::before {
+            width: 105%;
+          }
+          &::after {
+            background: #fff;
+          }
+        }
+      }
+
+      h2 {
+        font-weight: 700;
+        font-size: $base-font-size * 3.8;
+        @include desktop {
+          font-size: $base-font-size * 3;
+          text-align: center;
+        }
+      }
+
+      p {
+        font-size: $base-font-size * 1.25;
+        letter-spacing: 0.5px;
+        line-height: $base-font-size * 1.8;
+        @include desktop {
+          text-align: center;
+        }
+      }
+    }
+
+    .right {
+      //   background-color: aqua;
+      // transform: translate(-100px, 100px);
+      @include flexCenter;
+      justify-content: flex-end;
+      width: 40%;
+
+      .char {
+        position: absolute;
+        right: 10%;
+        transform: scale(1.5);
+        @include desktop {
+          //   position: relative;
+          display: none;
+        }
+        img {
+          width: 280px !important;
+          height: 350px !important;
+        }
+      }
+    }
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

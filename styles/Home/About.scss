@@ -1,0 +1,102 @@
+.about {
+  // background-color: greenyellow;
+  transform: translateY(-60px);
+  @include flexCenter;
+  position: relative;
+  min-height: 100vh;
+  top: 80px;
+  @include desktop {
+    min-height: 100vh;
+  }
+  @include phone {
+    transform: translateY(0);
+    margin-top: 100px;
+    align-items: flex-start;
+    min-height: 90vh;
+  }
+
+  .char {
+    position: absolute;
+    transform: scale(1.3);
+    right: 8%;
+    bottom: 6%;
+    z-index: 1;
+    @include desktop {
+      bottom: 5%;
+    }
+    @include tablet {
+      right: 5%;
+      // top: 58%;
+    }
+    @include phone {
+      display: none;
+    }
+    // margin: 0 auto;
+    img {
+      // position: relative !important;
+      // transform: translateY(-100px);
+      width: 9vmax !important;
+      height: 14vmax !important;
+      @include tablet {
+        width: 12vmax !important;
+        height: 17vmax !important;
+      }
+    }
+  }
+
+  .rumput {
+    position: absolute;
+    bottom: 0;
+    @include tablet {
+      bottom: 1%;
+    }
+  }
+
+  .container {
+    width: 50%;
+    flex-direction: column;
+    text-align: center;
+    gap: 38px;
+    letter-spacing: 0.5px;
+    @include phone {
+      width: 85%;
+    }
+
+    h2 {
+      font-size: $base-font-size * 7;
+      font-weight: 900;
+      @include desktop {
+        font-size: $base-font-size * 5;
+      }
+
+      @include phone {
+        font-size: $base-font-size * 3.5;
+      }
+    }
+
+    p {
+      font-size: $base-font-size * 1.55;
+      line-height: 28px;
+      @include desktop {
+        font-size: $base-font-size * 1.34;
+      }
+      @include phone {
+        line-height: 24px;
+        font-size: $base-font-size * 1.34;
+      }
+      &:nth-child(2) {
+        font-weight: 600;
+        line-height: 32px;
+        font-size: $base-font-size * 1.8;
+
+        @include desktop {
+          font-size: $base-font-size * 1.64;
+        }
+        @include phone {
+          line-height: 24px;
+          font-size: $base-font-size * 1.34;
+        }
+      }
+    }
+  }
+}

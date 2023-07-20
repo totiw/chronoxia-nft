@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800;900&display=swap");
+@function fontWeight($weight-name) {
+  @return map-get($font-weights, $weight-name);
+}
+
+body {
+  overflow-x: hidden;
+}
+// CSS RESET
+* {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Rubik", sans-serif;
+  // font-family: Arial, Helvetica, sans-serif;
+}
+
+#visionMore,
+#rarityMore {
+  display: inline;
+  @include tablet {
+    display: none;
+  }
+}
+#visionDots,
+#rarityDots {
+  display: none;
+  @include tablet {
+    display: inline;
+  }
+}
+
+#visionBtn,
+#rarityBtn {
+  display: none;
+  @include tablet {
+    display: block;
+  }
+}
+
+// REVEAL ELEMENT
+.reveal {
+  position: relative;
+  transform: scale(0.3) translateY(150px);
+  opacity: 0;
+  transition: all 0.7s ease;
+
+  &.active {
+    transform: scale(1) translateY(0px);
+    opacity: 1;
+  }
+}
+
+// CONTAINER
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto;
+}
+
+// BUTTON
+.button {
+  padding: 0.75em 0.75em * 2;
+  border: none;
+  border-radius: 5px;
+}
+
+// CARD
+.cards {
+  // background-color: red;
+  @include flexCenter;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 0.75em * 2;
+
+  .card {
+    background-color: #a0a0a0;
+    @include flexCenter;
+    flex-direction: column;
+    padding: 0.75em * 2 0;
+    gap: 0.75em;
+  }
+}

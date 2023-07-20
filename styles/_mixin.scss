@@ -1,0 +1,146 @@
+// FLEX CENTER
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// HERO ELEMENTS
+@mixin heroElements {
+  position: absolute;
+  bottom: 0;
+  width: 20%;
+  @include desktop {
+    width: 25%;
+  }
+}
+@mixin elements {
+  &-left {
+    @include heroElements;
+    left: 0;
+  }
+
+  &-right {
+    @include heroElements;
+    right: 0;
+  }
+}
+
+// BUTTON
+@mixin btn {
+  transform: skew(-15deg);
+  cursor: pointer;
+  background: linear-gradient(180deg, white, $primary-color, white);
+  color: #7a6f7f;
+  transition: 0.35s;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  transition: 0.15s ease-in-out;
+  background-position-y: 15px;
+  background-size: 1px 50px;
+  border: 0.5px solid rgba(255, 255, 255, 0.4);
+  &:hover {
+    background-position-y: -33px;
+  }
+  @include phone {
+    transform: scale(0.8) skew(-10deg);
+  }
+}
+
+@mixin btnWallete {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 2%;
+  padding: 25px 0;
+  font-weight: 700;
+  text-align: left;
+  padding-left: 20px;
+  background-color: #fff;
+  border: 1px solid #eee;
+  cursor: pointer;
+  transition: 0.35s;
+  &:first-child {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+  &:last-child {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+}
+
+// MEDIA QUERIES
+@mixin phone {
+  @media (max-width: 576px) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media (max-width: 1360px) {
+    @content;
+  }
+}
+
+// SECTION TITLE
+@mixin titleSection {
+  margin-top: -30px;
+  margin-bottom: 50px;
+  font-size: $base-font-size * 6;
+  position: relative;
+  z-index: 1;
+  @include desktop {
+    font-size: $base-font-size * 4.5;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+}
+
+// SOCIAL MEDIA
+@mixin sosmed($color) {
+  background-color: $color;
+  transition: 0.3s;
+  &:hover {
+    background-color: darken($color, 8);
+  }
+}
+
+@mixin sosials {
+  width: 25%;
+  @include flexCenter;
+  justify-content: space-around;
+
+  @include desktop {
+    width: 80%;
+    gap: 5%;
+  }
+  .social {
+    @include flexCenter;
+    // background-color: blue;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: #fff;
+
+    &.fb {
+      @include sosmed(rgb(66 103 178));
+    }
+    &.tw {
+      @include sosmed(rgb(29, 161, 242));
+    }
+    &.ig {
+      @include sosmed(rgb(131, 58, 180));
+    }
+    &.dc {
+      @include sosmed(rgb(114, 137, 218));
+    }
+    &.tg {
+      @include sosmed(rgb(0, 136, 204));
+    }
+  }
+}
